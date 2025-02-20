@@ -6,45 +6,45 @@ El objetivo del código es automatizar el proceso de extracción, análisis y ge
 
 1. Procesamiento de PDF con GROBID
 
-Se envía el archivo PDF al servicio de GROBID mediante una petición HTTP.
+    Se envía el archivo PDF al servicio de GROBID mediante una petición HTTP.
 
-GROBID devuelve un archivo XML con la estructura del documento.
+    GROBID devuelve un archivo XML con la estructura del documento.
 
-El XML resultante se guarda en una carpeta específica para cada documento.
+    El XML resultante se guarda en una carpeta específica para cada documento.
 
 2. Procesamiento del XML
 
-Se extraen el resumen y las palabras clave utilizando xml.etree.ElementTree.
+    Se extraen el resumen y las palabras clave utilizando xml.etree.ElementTree.
 
-Se analizan las menciones a figuras en el cuerpo del texto.
+    Se analizan las menciones a figuras en el cuerpo del texto.
 
-Se extraen enlaces de referencia.
+    Se extraen enlaces de referencia.
 
 3. Generación de Nube de Palabras
 
-Se genera una nube de palabras a partir del resumen y palabras clave utilizando WordCloud.
+    Se genera una nube de palabras a partir del resumen y palabras clave utilizando WordCloud.
 
-La imagen se guarda en la carpeta del documento.
+    La imagen se guarda en la carpeta del documento.
 
 4. Generación del Informe en PDF
 
-Se usa FPDF para crear un informe con:
+    Se usa FPDF para crear un informe con:
 
-Resumen y palabras clave.
+    Resumen y palabras clave.
 
-Conteo de figuras mencionadas en el artículo.
+    Conteo de figuras mencionadas en el artículo.
 
-Lista de enlaces encontrados.
+    Lista de enlaces encontrados.
 
-Imagen de la nube de palabras.
+    Imagen de la nube de palabras.
 
-Cada informe se guarda en una carpeta exclusiva para el artículo.
+    Cada informe se guarda en una carpeta exclusiva para el artículo.
 
 5. Visualización del Total de Figuras
 
-Se genera un gráfico de barras con el número total de figuras por artículo usando matplotlib.
+    Se genera un gráfico de barras con el número total de figuras por artículo usando matplotlib.
 
-El gráfico se guarda en la carpeta procesados como estudioFiguras.png.
+    El gráfico se guarda en la carpeta procesados como estudioFiguras.png.
 
 # Beneficios del Enfoque
 
