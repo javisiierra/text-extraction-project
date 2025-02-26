@@ -1,0 +1,36 @@
+# Usa una imagen oficial de Python
+FROM python:3.10-slim
+
+# Configuración del entorno de trabajo
+WORKDIR /app
+
+# Instalar dependencias del sistema necesarias para Grobid
+RUN apt-get update && apt-get install -y \
+    openjdk-11-jdk \
+    wget \
+    unzip \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Descargar y configurar Grobid
+RUN wget https://github.com/kermitt2/grobid/archive/refs/heads/master.zip -O /tmp/grobid.zip \
+    && unzip /tmp/grobid.zip -d /tmp/ \
+    && mv /tmp/grobid-master /grobid \
+    && rm /tmp/grobid.zip
+
+# Compilar Grobid
+WORKDIR /grobid
+RUN ./gradlew clean install
+
+# Copiar los archivos del proyecto
+WORKDIR /app
+COPY . /app
+
+# Instalar dependencias de Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Exponer puertos para Grobid
+EXPOSE 8070
+
+# Iniciar Grobid y el script principal asegurando que Grobid está corriendo
+CMD ["sh", "-c", "cd /grobid && ./gradlew run & while ! curl -s http://localhost:8070/api/isalive > /dev/null; do sleep 5; done && python programa.py articles"]

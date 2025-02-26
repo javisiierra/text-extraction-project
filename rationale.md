@@ -1,60 +1,23 @@
-# Objetivo
+Este documento explica cómo se han validado las respuestas obtenidas en el análisis de los artículos. A continuación, se describen los pasos seguidos en el proceso:
 
-El objetivo del código es automatizar el proceso de extracción, análisis y generación de informes a partir de documentos académicos en formato PDF. Utiliza GROBID para convertir los archivos PDF en XML (TEI), extrae información clave como resúmenes, palabras clave y menciones de figuras, y genera un informe en formato PDF con visualizaciones.
+# Pasos del Proceso
 
-# Componentes Principales
+1) Creación de un pipeline con Grobid y selección inicial de artículos
 
-1. Procesamiento de PDF con GROBID
+    Se ha utilizado Grobid para procesar los artículos en formato PDF y extraer información estructurada en XML. La selección de artículos se ha basado en criterios específicos de relevancia.
 
-    Se envía el archivo PDF al servicio de GROBID mediante una petición HTTP.
+    El script process_pdf_with_grobid se encarga de enviar cada PDF al servidor de Grobid, recibir el XML procesado y almacenarlo en una carpeta de salida. Posteriormente, estos archivos XML se utilizan para la extracción de información clave.
 
-    GROBID devuelve un archivo XML con la estructura del documento.
+2) Creación de scripts en Python para responder las preguntas
 
-    El XML resultante se guarda en una carpeta específica para cada documento.
+    Se han desarrollado scripts en Python que analizan los datos extraídos de los artículos y generan respuestas a las preguntas de investigación.
 
-2. Procesamiento del XML
+    process_xml analiza los archivos XML obtenidos con Grobid y extrae el título, resumen, palabras clave, número de figuras y enlaces presentes en el documento.
 
-    Se extraen el resumen y las palabras clave utilizando xml.etree.ElementTree.
+    Se crea un informe individual en PDF para cada artículo, incluyendo la información relevante.
 
-    Se analizan las menciones a figuras en el cuerpo del texto.
+    Se genera una nube de palabras con las palabras clave más repetidas entre todos los artículos.
 
-    Se extraen enlaces de referencia.
+    Se crea un informe global en PDF con las palabras clave más frecuentes y su conteo.
 
-3. Generación de Nube de Palabras
-
-    Se genera una nube de palabras a partir del resumen y palabras clave utilizando WordCloud.
-
-    La imagen se guarda en la carpeta del documento.
-
-4. Generación del Informe en PDF
-
-    Se usa FPDF para crear un informe con:
-
-    Resumen y palabras clave.
-
-    Conteo de figuras mencionadas en el artículo.
-
-    Lista de enlaces encontrados.
-
-    Imagen de la nube de palabras.
-
-    Cada informe se guarda en una carpeta exclusiva para el artículo.
-
-5. Visualización del Total de Figuras
-
-    Se genera un gráfico de barras con el número total de figuras por artículo usando matplotlib.
-
-    El gráfico se guarda en la carpeta procesados como estudioFiguras.png.
-
-# Beneficios del Enfoque
-
-Automatización Completa: Procesa varios archivos PDF sin intervención manual.
-
-Organización Estructurada: Cada artículo tiene su propia carpeta con los resultados.
-
-Análisis Visual: La nube de palabras y el gráfico de figuras facilitan la interpretación de los datos.
-
-Escalabilidad: Puede adaptarse fácilmente a grandes volúmenes de documentos.
-
-Este código proporciona un flujo de trabajo eficiente para la extracción de información académica, con posibilidades de extensión y mejora.
-
+    Se genera una visualización comparativa del número de figuras en los artículos analizados.
