@@ -9,6 +9,7 @@ Este proyecto analiza artículos en formato PDF extrayendo información relevant
 - Generación de informes automáticos en PDF.
 - Creación de una nube de palabras basada en los resúmenes.
 - Comparación del número de figuras mencionadas por artículo.
+- **Tests automáticos con `pytest` para validar el correcto funcionamiento.**
 
 ## Requisitos
 - Python 3.8+
@@ -36,6 +37,21 @@ docker build -t analisis-pdf .
 docker run -v $(pwd)/pdfs:/app/articles analisis-pdf
 ```
 
+## Ejecución de Tests
+Para validar el correcto funcionamiento, ejecuta los tests con `pytest`:
+```sh
+pytest test_programa.py
+```
+Si no tienes `pytest`, instálalo con:
+```sh
+pip install pytest
+```
+Si usas un entorno virtual, actívalo antes de correr los tests:
+```sh
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+pytest test_programa.py
+```
+
 ## Estructura de Salida
 - `procesados/` → Carpeta con los archivos procesados.
 - `wordcloud_global.png` → Nube de palabras clave.
@@ -51,4 +67,5 @@ La documentación completa está disponible en [ReadTheDocs](https://readthedocs
 
 ## Licencia
 Este proyecto está bajo la licencia MIT. Ver `LICENSE` para más detalles.
+
 
