@@ -58,8 +58,17 @@ pytest test_programa.py
 - `resumen_palabras.pdf` → Informe de palabras clave.
 - `comparacion_figuras.png` → Comparación del número de figuras por artículo.
 
-## Documentación
+## ## Documentación
 La documentación completa está disponible en [ReadTheDocs](https://readthedocs.org/).
+
+### Generación de Documentación Local
+Para generar la documentación localmente, instala `sphinx` y ejecuta:
+```sh
+pip install sphinx
+cd docs
+make html
+```
+Los archivos generados estarán en `docs/_build/html/`.
 
 ## Notas Importantes
 - **No subas el entorno virtual (`venv/`) a GitHub**. Asegúrate de incluirlo en tu `.gitignore`.
@@ -67,5 +76,6 @@ La documentación completa está disponible en [ReadTheDocs](https://readthedocs
 
 ## Licencia
 Este proyecto está bajo la licencia MIT. Ver `LICENSE` para más detalles.
+
 
 
