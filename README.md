@@ -58,7 +58,7 @@ pytest test_programa.py
 - `resumen_palabras.pdf` → Informe de palabras clave.
 - `comparacion_figuras.png` → Comparación del número de figuras por artículo.
 
-## ## Documentación
+## Documentación
 La documentación completa está disponible en [ReadTheDocs](https://readthedocs.org/).
 
 ### Generación de Documentación Local
