@@ -1,4 +1,8 @@
+sphinx
+sphinx-rtd-theme
 matplotlib
 wordcloud
 fpdf
 requests
+xml
+shutil
