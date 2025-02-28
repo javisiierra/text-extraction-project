@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 project = 'text-extraction-project'
-copyright = '2025, Tu Nombre'
+copyright = '2025, Javier Sierra'
 author = 'Javier Sierra'
 release = '1.0'
 
