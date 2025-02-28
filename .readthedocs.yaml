@@ -1,8 +1,12 @@
 version: 2
+
 build:
   os: ubuntu-22.04
   tools:
-    python: "3.10"  # Usa solo "3.10" en lugar de "3.10.15"
+    python: "3.10"
+
+sphinx:
+  configuration: docs/conf.py  # Asegúrate de que este sea el camino correcto a tu conf.py
 
 python:
   install:
