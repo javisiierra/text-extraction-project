@@ -1,0 +1,4 @@
+matplotlib
+wordcloud
+fpdf
+requests
