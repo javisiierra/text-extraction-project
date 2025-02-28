@@ -2,5 +2,3 @@ matplotlib
 wordcloud
 fpdf
 requests
-xml
-shutil
