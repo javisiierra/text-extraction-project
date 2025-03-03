@@ -4,7 +4,6 @@ Esta sección describe los métodos y clases disponibles en **text-extraction-pr
 
 ```python
 from text_extraction import Analyzer
-
 analyzer = Analyzer("example.pdf")
 result = analyzer.extract_metadata()
 print(result)
