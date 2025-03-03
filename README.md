@@ -78,7 +78,7 @@ Los archivos generados estarán en `docs/_build/html/`.
 
 Si utilizas este proyecto en tu investigación, por favor cita el trabajo usando Zenodo:  
 
-[![DOI](https://zenodo.org/badge/DOI/10.xxxx/zenodo.xxxxxx.svg)](https://doi.org/10.xxxx/zenodo.xxxxxx)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14961847.svg)](https://doi.org/10.5281/zenodo.14961847)
 
 Puedes encontrar más detalles en la página de Zenodo del proyecto.
 
