@@ -27,3 +27,4 @@ Instalación con Docker
 ```sh
 docker build -t text-extraction-project .
 docker run text-extraction-project
+```
