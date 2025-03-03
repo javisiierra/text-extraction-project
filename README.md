@@ -59,7 +59,10 @@ pytest test_programa.py
 - `comparacion_figuras.png` → Comparación del número de figuras por artículo.
 
 ## Documentación
-La documentación completa está disponible en [ReadTheDocs](https://readthedocs.org/).
+
+La documentación completa está disponible en [ReadTheDocs](https://text-extraction-project.readthedocs.io/es/latest/).
+
+[![Documentación en ReadTheDocs](https://readthedocs.org/projects/text-extraction-project/badge/?version=latest)](https://text-extraction-project.readthedocs.io/es/latest/)
 
 ### Generación de Documentación Local
 Para generar la documentación localmente, instala `sphinx` y ejecuta:
