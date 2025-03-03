@@ -74,6 +74,14 @@ Los archivos generados estarán en `docs/_build/html/`.
 - **No subas el entorno virtual (`venv/`) a GitHub**. Asegúrate de incluirlo en tu `.gitignore`.
 - Grobid se ejecutará dentro del contenedor, por lo que no es necesario instalarlo manualmente.
 
+## Cita y Referencia  
+
+Si utilizas este proyecto en tu investigación, por favor cita el trabajo usando Zenodo:  
+
+[![DOI](https://zenodo.org/badge/DOI/10.xxxx/zenodo.xxxxxx.svg)](https://doi.org/10.xxxx/zenodo.xxxxxx)
+
+Puedes encontrar más detalles en la página de Zenodo del proyecto.
+
 ## Licencia
 Este proyecto está bajo la licencia MIT. Ver `LICENSE` para más detalles.
 
