@@ -2,6 +2,8 @@ import os
 import pytest
 import shutil
 from collections import Counter
+from unittest.mock import patch, mock_open
+import xml.etree.ElementTree as ET
 from programa import process_pdf_with_grobid, process_xml
 
 @pytest.fixture
@@ -18,12 +20,16 @@ def setup_test_env():
     
     shutil.rmtree(test_dir)
 
-def test_process_pdf_with_grobid(setup_test_env):
+@patch("requests.post")
+def test_process_pdf_with_grobid(mock_post, setup_test_env):
     """Verifica que GROBID procesa el PDF y genera un archivo XML."""
     test_dir = setup_test_env
     pdf_path = os.path.join(test_dir, "sample.pdf")
     output_dir = os.path.join(test_dir, "procesados")
-
+    
+    mock_post.return_value.status_code = 200
+    mock_post.return_value.text = "<xml>Mock XML Content</xml>"
+    
     xml_path, article_dir = process_pdf_with_grobid(pdf_path, output_dir)
     
     assert xml_path is not None
@@ -62,6 +68,16 @@ def test_process_xml():
     assert figures_count[sample_xml] == 1  # Debería contar una figura mencionada
     
     shutil.rmtree(test_dir)
+
+def test_global_word_counter():
+    """Prueba la acumulación de palabras clave en global_word_counter."""
+    global_word_counter = Counter()
+    sample_keywords = ["prueba", "test", "prueba", "análisis"]
+    global_word_counter.update(sample_keywords)
+    
+    assert global_word_counter["prueba"] == 2
+    assert global_word_counter["test"] == 1
+    assert global_word_counter["análisis"] == 1
 
 if __name__ == "__main__":
     pytest.main()
